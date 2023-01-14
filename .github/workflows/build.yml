@@ -63,8 +63,8 @@ jobs:
       # - name: jest
       #   run: pnpm test
 
-      # - name: tsc
-      #   run: pnpm tsc
+      - name: tsc
+        run: pnpm tsc
 
-      # - name: build
-      #   run: pnpm build
+      - name: build
+        run: pnpm build
