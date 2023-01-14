@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "tsnd --exit-child --transpile-only src/main.ts",
     "build": "tsc",
-    "start:prod": "node build/index.js"
+    "start:prod": "node build/index.js",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:format": "prisma format",
+    "db:migrate-new": "prisma migrate dev --name <NAME>"
   },
   "dependencies": {
     "@prisma/client": "^4.1.0",
