@@ -27,6 +27,8 @@ export async function uploadVideoHandler(req: Request, res: Response) {
     owner: user.id,
   });
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   // eslint-disable-next-line consistent-return
   bb.on('file', async (_, file, info) => {
     const { mimeType } = info;
@@ -108,6 +110,8 @@ export async function findVideosHandler(_req: Request, res: Response) {
   });
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 // eslint-disable-next-line consistent-return
 export async function streamVideoHandler(
   req: Request<{ videoId: string }>,
