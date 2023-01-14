@@ -65,6 +65,3 @@ jobs:
 
       - name: tsc
         run: pnpm tsc
-
-      - name: build
-        run: pnpm build

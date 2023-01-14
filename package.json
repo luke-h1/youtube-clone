@@ -9,7 +9,6 @@
     "start:frontend": "pnpm --filter frontend dev",
     "lint": "pnpm --parallel --stream -r lint",
     "tsc": "pnpm --parallel --stream -r tsc",
-    "build": "pnpm --parallel --stream -r build --filter frontend",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "clean": "pnpm uninstall -r server frontend && rm -rf node_modules",
