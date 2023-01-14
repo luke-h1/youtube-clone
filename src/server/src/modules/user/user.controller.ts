@@ -21,7 +21,7 @@ export async function registerUserHandler(
   } catch (e) {
     if (e.code === 'P2002') {
       return res.status(409).json({
-        error: 'User already',
+        message: "an error occured"
       });
     }
 
