@@ -5,6 +5,7 @@ import express, { Express } from 'express';
 import helmet from 'helmet';
 import authRoutes from './modules/auth/auth.route';
 import userRoutes from './modules/user/user.route';
+import videoRoutes from './modules/videos/video.route';
 
 export default function createServer(): Express {
   const app = express();
@@ -25,7 +26,8 @@ export default function createServer(): Express {
 
   // routes
   app.use('/api/v1/auth', authRoutes);
-  app.use('/api/v1/auth', userRoutes);
+  app.use('/api/v1/users', userRoutes);
+  app.use('/api/v1/videos', videoRoutes);
 
   return app;
 }
