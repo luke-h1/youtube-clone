@@ -8,11 +8,12 @@ const WatchPage = () => {
   return (
     <div>
       <video
-        src={`http://localhost:4000/videos/${id}`}
+        src={`http://localhost:4000/api/v1/videos/${id}`}
         controls
         width="800px"
         height="auto"
         id="video-player"
+        crossOrigin="anonymous"
       />
     </div>
   );

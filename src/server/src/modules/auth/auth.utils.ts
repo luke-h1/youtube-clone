@@ -1,4 +1,4 @@
-import argon2 from 'argon2';
+import bcrypt from 'bcrypt';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
 const SECRET = process.env.JWT_SECRET || 'changeme';
@@ -18,13 +18,15 @@ export function verifyJwt(token: string): string | JwtPayload | null {
   }
 }
 
-export async function hashPassword(password: string): Promise<string> {
-  return argon2.hash(password);
+export async function hashPassword(candidatePassword: string): Promise<string> {
+  const hash = await bcrypt.hash(candidatePassword, 10);
+
+  return hash;
 }
 
 export async function comparePasswords(
-  candidatePassword: string,
   hashedPassword: string,
-): Promise<boolean> {
-  return argon2.verify(hashedPassword, candidatePassword);
+  candidatePassword: string,
+) {
+  return bcrypt.compare(candidatePassword, hashedPassword);
 }

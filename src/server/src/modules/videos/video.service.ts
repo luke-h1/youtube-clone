@@ -17,11 +17,14 @@ export function createVideo({ owner }: { owner: string }) {
 }
 
 export function findVideo(videoId: string) {
-  return prisma.video.findUnique({
+  const t = prisma.video.findFirst({
     where: {
       id: videoId,
     },
   });
+
+  console.log(t);
+  return t;
 }
 
 export function findVideosByOwner(ownerId: string) {

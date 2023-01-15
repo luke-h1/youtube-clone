@@ -7,6 +7,7 @@ interface Props {
 }
 
 const VideoTeaser = ({ video }: Props) => {
+  console.log(video);
   return (
     <Link href={`/watch/${video.id}`}>
       <Card shadow="sm" p="xl">

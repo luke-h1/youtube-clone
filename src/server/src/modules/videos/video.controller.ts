@@ -93,8 +93,9 @@ export async function updateVideoHandler(
 
   const updatedVideo = await updateVideo(videoId, {
     description,
-    published,
+    published: true,
     title,
+    publishedAt: published ? new Date() : null,
   });
 
   return res.status(200).json({

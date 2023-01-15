@@ -10,7 +10,9 @@ import {
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
 interface State {
-  videos?: Video[];
+  videos?: {
+    videos: Video[];
+  };
   refetch: <TPageData>(
     options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined,
   ) => Promise<QueryObserverResult<Video[], unknown>>;
@@ -29,7 +31,7 @@ const VideoContextProvider = ({ children }: Props) => {
 
   const contextState: State = useMemo(() => {
     return {
-      videos: data,
+      videos: data as unknown as { videos: Video[] },
       refetch,
     };
   }, [data, refetch]);

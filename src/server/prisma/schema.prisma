@@ -23,8 +23,6 @@ model User {
 }
 
 model Video {
-  // uuid
-  // set default to uuid_generate_v4()
   id          String  @id @default(uuid())
   title       String
   description String

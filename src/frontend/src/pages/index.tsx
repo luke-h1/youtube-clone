@@ -6,12 +6,14 @@ import HomePageLayout from '../layout/Home';
 
 const HomePage = () => {
   const { videos } = useVideos();
+
   return (
     <div>
       <SimpleGrid cols={3}>
-        {videos &&
-          videos.length > 0 &&
-          videos.map(video => <VideoTeaser key={video.id} video={video} />)}
+        {videos?.videos &&
+          videos?.videos.map(video => (
+            <VideoTeaser key={video.id} video={video} />
+          ))}
       </SimpleGrid>
     </div>
   );

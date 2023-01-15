@@ -16,9 +16,9 @@ export async function loginHandler(
     return res.status(404).send({ error: 'User not found' });
   }
 
-  const isValidPassword = await comparePasswords(password, user.password);
+  const valid = await comparePasswords(user.password, password);
 
-  if (!isValidPassword) {
+  if (!valid) {
     return res.status(401).send({ error: 'Invalid credentials' });
   }
 
@@ -26,7 +26,7 @@ export async function loginHandler(
 
   const jwt = signJwt(payload);
 
-  res.cookie('access_token', jwt, {
+  res.cookie('accessToken', jwt, {
     maxAge: 14 * 24 * 60 * 60 * 1000, // 14 days
     httpOnly: true, // not accessible via JS
     domain: process.env.NODE_ENV === 'production' ? '' : 'localhost',
