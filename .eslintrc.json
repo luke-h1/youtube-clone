@@ -1,5 +1,6 @@
 {
   "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "jest"],
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
@@ -13,7 +14,8 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": "./src/**/tsconfig.json"
+        "project": ["src/*/tsconfig.json"],
+        "moduleDirectory": ["node_modules", "src"]
       }
     },
     "env": {
@@ -22,13 +24,12 @@
       "node": true
     },
     "next": {
-      "rootDir": "src/frontend"
+      "rootDir": "./src/frontend"
     },
     "react": {
       "version": "detect"
     }
   },
-  "plugins": ["@typescript-eslint", "jest"],
   "env": {
     "browser": true,
     "jest": true,
@@ -52,13 +53,16 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": [
-      "error"
-    ],
+    "import/no-unresolved": ["error"],
     "import/order": [
       "error",
       {
-        "groups": [[ "builtin", "external", "internal" ], "parent", "sibling", "index"],
+        "groups": [
+          ["builtin", "external", "internal"],
+          "parent",
+          "sibling",
+          "index"
+        ],
         "pathGroups": [
           {
             "pattern": "@frontend/**",
