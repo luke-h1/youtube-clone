@@ -5,9 +5,9 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  experimental: {
-    externalDir: true,
-  },
+  // experimental: {
+  //   externalDir: true,
+  // },
   eslint: {
     ignoreDuringBuilds: true,
   },
