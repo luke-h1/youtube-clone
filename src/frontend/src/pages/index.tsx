@@ -17,6 +17,8 @@ const HomePage = () => {
   );
 };
 
+// eslint-disable-next-line func-names
 HomePage.getLayout = function (page: ReactElement) {
   return <HomePageLayout>{page}</HomePageLayout>;
 };
+export default HomePage;

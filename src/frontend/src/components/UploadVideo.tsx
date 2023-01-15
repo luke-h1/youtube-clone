@@ -1,5 +1,4 @@
 import videoMutations from '@common/mutations/videoMutations';
-import { Video } from '@common/types/video';
 import {
   Button,
   Group,

@@ -5,41 +5,18 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    externalDir: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
   transpilePackages: ['common'],
+  env: {
+    API_BASE_URL: process.env.API_BASE_URL,
+  },
   webpack(config, options) {
-    const { dev, isServer } = options;
-
-    if (isServer) {
-      const ForkTsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
-
-      config.plugins.push(
-        new ForkTsCheckerPlugin({
-          typescript: {
-            configFile: path.resolve(__dirname, 'src/tsconfig.json'),
-          },
-        }),
-      );
-
-      // eslint-disable-next-line no-param-reassign
-      config.externals = [...config.externals, 'react', 'react-dom'];
-    }
-
-    if (dev) {
-      const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-
-      config.plugins.push(new CaseSensitivePathsPlugin());
-
-      const ESLintPlugin = require('eslint-webpack-plugin');
-
-      config.plugins.push(
-        new ESLintPlugin({
-          extensions: ['js', 'jsx', 'ts', 'tsx'],
-        }),
-      );
-    }
+    const { isServer } = options;
 
     // eslint-disable-next-line no-param-reassign
     config.resolve.alias = {

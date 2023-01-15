@@ -84,12 +84,14 @@ importers:
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
       axios: ^1.2.2
-      common: workspace:*
+      case-sensitive-paths-webpack-plugin: 2.4.0
+      common: workspace:1.0.0
       eslint: 8.31.0
       eslint-config-next: 13.1.2
       fork-ts-checker-webpack-plugin: 7.3.0
       lodash: ^4.17.21
       next: 13.1.2
+      next-transpile-modules: 10.0.0
       react: 18.2.0
       react-dom: 18.2.0
       tabler-icons-react: ^1.56.0
@@ -109,12 +111,14 @@ importers:
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
       axios: 1.2.2
+      case-sensitive-paths-webpack-plugin: 2.4.0
       common: link:../common
       eslint: 8.31.0
       eslint-config-next: 13.1.2_iukboom6ndih5an6iafl45j2fe
       fork-ts-checker-webpack-plugin: 7.3.0_typescript@4.9.4
       lodash: 4.17.21
       next: 13.1.2_biqbaboplfbrettd7655fr4n2y
+      next-transpile-modules: 10.0.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tabler-icons-react: 1.56.0_react@18.2.0
@@ -4315,6 +4319,11 @@ packages:
     resolution: {integrity: sha512-ecER9xgJQVMqcrxThKptsW0pPxSae8R2RB87LNa+ivW9ppNWRHEplXcDzkCOP4LYWGj8hunXLqaiC41iBATNyg==}
     dev: false
 
+  /case-sensitive-paths-webpack-plugin/2.4.0:
+    resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
+    engines: {node: '>=4'}
+    dev: false
+
   /caseless/0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
     dev: true
@@ -8105,6 +8114,13 @@ packages:
   /new-github-issue-url/0.2.1:
     resolution: {integrity: sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==}
     engines: {node: '>=10'}
+    dev: false
+
+  /next-transpile-modules/10.0.0:
+    resolution: {integrity: sha512-FyeJ++Lm2Fq31gbThiRCrJlYpIY9QaI7A3TjuhQLzOix8ChQrvn5ny4MhfIthS5cy6+uK1AhDRvxVdW17y3Xdw==}
+    deprecated: All features of next-transpile-modules are now natively built-in Next.js 13.1. Please use Next's transpilePackages option :)
+    dependencies:
+      enhanced-resolve: 5.12.0
     dev: false
 
   /next/13.1.2_biqbaboplfbrettd7655fr4n2y:

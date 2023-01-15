@@ -23,7 +23,7 @@ const videoService = {
     formData: FormData;
     config: { onUploadProgress: (progressEvent: AxiosProgressEvent) => void };
   }) {
-    const res = await youtubeApi.post('/api/videos', formData, {
+    const res = await youtubeApi.post('/api/v1/videos', formData, {
       withCredentials: true,
       ...config,
       headers: {
@@ -38,7 +38,7 @@ const videoService = {
     videoId,
     ...payload
   }: { videoId: string } & VideoEditPayload) {
-    const res = await youtubeApi.patch(`/api/videos/${videoId}`, payload, {
+    const res = await youtubeApi.patch(`/api/v1/videos/${videoId}`, payload, {
       withCredentials: true,
     });
 
@@ -46,12 +46,12 @@ const videoService = {
   },
 
   async getVideos() {
-    const res = await youtubeApi.get('/api/videos');
+    const res = await youtubeApi.get('/api/v1/videos');
     return res.data;
   },
 
   async getVideo(videoId: string) {
-    const res = await youtubeApi.get(`/api/videos/${videoId}`);
+    const res = await youtubeApi.get(`/api/v1/videos/${videoId}`);
     return res.data;
   },
 };
