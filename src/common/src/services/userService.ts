@@ -1,13 +1,15 @@
 import youtubeApi from '@common/services/clients/youtubeApi';
 import { User } from '@common/types/user';
 
+export interface RegisterUserPayload {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 const userService = {
-  async registerUser(payload: {
-    username: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-  }): Promise<string> {
+  async registerUser(payload: RegisterUserPayload): Promise<string> {
     const res = await youtubeApi.post('/api/v1/users', payload);
     return res.data;
   },

@@ -7,7 +7,7 @@
     "test": "pnpm test",
     "start:server": "pnpm --filter server dev",
     "start:frontend": "pnpm --filter frontend dev",
-    "lint": "pnpm --parallel --stream -r lint",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx src",
     "tsc": "pnpm --parallel --stream -r tsc",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",

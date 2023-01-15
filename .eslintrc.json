@@ -16,6 +16,11 @@
         "project": "./src/**/tsconfig.json"
       }
     },
+    "env": {
+      "browser": true,
+      "jest": true,
+      "node": true
+    },
     "next": {
       "rootDir": "src/frontend"
     },
