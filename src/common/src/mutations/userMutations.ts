@@ -21,4 +21,5 @@ const userMutations = {
     };
   },
 } as const;
+
 export default userMutations;
