@@ -59,11 +59,14 @@ importers:
 
   src/common:
     specifiers:
+      '@types/node': 18.11.18
       axios: ^1.2.2
       react-query: ^3.39.2
     dependencies:
       axios: 1.2.2
       react-query: 3.39.2
+    devDependencies:
+      '@types/node': 18.11.18
 
   src/frontend:
     specifiers:

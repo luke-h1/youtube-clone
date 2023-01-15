@@ -30,6 +30,7 @@ model Video {
   description String
   extension   String
   published   Boolean @default(false)
+  publishedAt DateTime?
   owner       User?   @relation(fields: [ownerId], references: [id])
   ownerId     String?
 
@@ -37,8 +38,4 @@ model Video {
   updatedAt DateTime @updatedAt
 
   @@map("videos")
-}
-
-enum Extension {
-  MP4
 }
