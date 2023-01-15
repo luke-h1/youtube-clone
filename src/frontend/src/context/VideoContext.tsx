@@ -1,5 +1,5 @@
-import userQueries from '@common/queries/userQueries';
-import { User } from '@common/types/user';
+import videoQueries from '@common/queries/videoQueries';
+import { Video } from '@common/types/video';
 import { Loader } from '@mantine/core';
 import {
   QueryObserverResult,
@@ -10,44 +10,44 @@ import {
 import { createContext, ReactNode, useContext, useMemo } from 'react';
 
 interface State {
-  user?: User | null;
+  videos?: Video[];
   refetch: <TPageData>(
     options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined,
-  ) => Promise<QueryObserverResult<User | null, unknown>>;
+  ) => Promise<QueryObserverResult<Video[], unknown>>;
 }
 
-const UserContext = createContext<State | undefined>(undefined);
+const VideoContext = createContext<State | undefined>(undefined);
 
 interface Props {
   children: ReactNode;
 }
 
-const UserContextProvider = ({ children }: Props) => {
+const VideoContextProvider = ({ children }: Props) => {
   const { data, isLoading, refetch } = useQuery({
-    ...userQueries.getCurrentUser(),
+    ...videoQueries.getVideos(),
   });
 
   const contextState: State = useMemo(() => {
     return {
-      user: data,
+      videos: data,
       refetch,
     };
   }, [data, refetch]);
 
   return (
-    <UserContext.Provider value={contextState}>
+    <VideoContext.Provider value={contextState}>
       {isLoading ? <Loader /> : children}
-    </UserContext.Provider>
+    </VideoContext.Provider>
   );
 };
-export default UserContextProvider;
+export default VideoContextProvider;
 
-export const useUser = () => {
-  const context = useContext(UserContext);
+export const useVideos = () => {
+  const context = useContext(VideoContext);
 
   if (!context) {
     throw new Error(
-      'useUser must be used within a UserContextProvider further up the component tree',
+      'useVideos must be used within a VideoContextProvider further up the component tree',
     );
   }
 

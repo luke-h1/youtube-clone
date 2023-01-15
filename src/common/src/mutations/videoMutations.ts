@@ -17,8 +17,8 @@ const videoMutations = {
     };
   },
   uploadVideo(): UseMutationOptions<
-    unknown,
-    unknown,
+    Video,
+    AxiosError,
     {
       formData: FormData;
       config: {

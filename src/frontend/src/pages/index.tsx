@@ -1,6 +1,22 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import { SimpleGrid } from '@mantine/core';
+import { ReactElement } from 'react';
+import VideoTeaser from '../components/VideoTeaser';
+import { useVideos } from '../context/VideoContext';
+import HomePageLayout from '../layout/Home';
 
-export default function Home() {
-  return <>yo</>;
-}
+const HomePage = () => {
+  const { videos } = useVideos();
+  return (
+    <div>
+      <SimpleGrid cols={3}>
+        {videos &&
+          videos.length > 0 &&
+          videos.map(video => <VideoTeaser key={video.id} video={video} />)}
+      </SimpleGrid>
+    </div>
+  );
+};
+
+HomePage.getLayout = function (page: ReactElement) {
+  return <HomePageLayout>{page}</HomePageLayout>;
+};

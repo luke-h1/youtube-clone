@@ -4,7 +4,7 @@ import { Video } from '@common/types/video';
 import { UseQueryOptions } from '@tanstack/react-query';
 
 const videoQueries = {
-  getVideos(): UseQueryOptions<Video> {
+  getVideos(): UseQueryOptions<Video[]> {
     return {
       queryKey: [queryKeys.getVideos],
       queryFn: () => videoService.getVideos(),
